@@ -1,6 +1,6 @@
 #!/bin/bash
 
-systemctl start mariadb
+service mariadb start 
 
 sleep 5
 
