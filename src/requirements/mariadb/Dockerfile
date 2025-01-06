@@ -4,9 +4,10 @@ FROM debian:11
 
 RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get install -y mariadb-server netcat
+RUN apt-get install -y mariadb-server mariadb-client netcat
 
 COPY ./tools/mdb.sh /mdb.sh
+COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
 RUN chmod +x /mdb.sh
 

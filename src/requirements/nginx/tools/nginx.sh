@@ -2,7 +2,7 @@
 
 echo "server {
     listen 443 ssl;
-    server_name www.touahman.42.fr touahman.42.fr;
+    server_name touahman.42.fr;
 
     ssl_certificate /etc/ssl/private/nginx-selfsigned.crt;
     ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
@@ -15,6 +15,6 @@ echo "server {
               include snippets/fastcgi-php.conf;
               fastcgi_pass wordpress:9000;
     }
-  }" >> /etc/nginx/sites-available/default
+  }" >> etc/nginx/sites-available/default
 
 nginx -g "daemon off;"
