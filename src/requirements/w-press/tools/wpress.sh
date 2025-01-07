@@ -20,12 +20,6 @@ cd /var/www/wordpress
 
 wp core download --allow-root
 mv wp-config-sample.php wp-config.php && wp config set SERVER_PORT 3306 --allow-root
-# # Create php file
-# wp core config --dbhost=mariadb:3306 --dbname="$MARIADB_NM" --dbuser="$MARIADB_USER" --dbpass="$MARIADB_PW" --allow-root
-# # Install wp
-# wp core install --url="$DOMAIN" --title="$WEBSITE_NAME" --admin_user="$ADMIN_NAME" --admin_password="$ADMIN_PASS" --admin_email="$ADMIN_EMAIL" --allow-root
-# # Create new user
-# wp user create "$NUSER_NAME" "$NUSER_EMAIL" --user_pass="$NUSER_PASS" --role="$NUSER_ROLE" --allow-root
 
 wp config set DB_NAME $MARIADB_NM --allow-root --path=/var/www/wordpress
 wp config set DB_USER $MARIADB_USER --allow-root --path=/var/www/wordpress
@@ -38,8 +32,6 @@ wp core install --url=$DOMAIN --title=$WEBSITE_NAME --admin_user=$ADMIN_NAME--ad
 wp user create $NUSER_NAME $NUSER_EMAIL --role=author --user_pass=$NUSER_PASS --allow-root --path=/var/www/wordpress
 
 ################### php Configuration
-
-sed -i 's#listen = /run/php/php7.4-fpm.sock#listen = 0.0.0.0:9000#' /etc/php/7.4/fpm/pool.d/www.conf
 
 mkdir -p /run/php
 

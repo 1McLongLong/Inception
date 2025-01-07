@@ -2,6 +2,7 @@ version: "3.8"
 
 services:
   mariadb:
+    image: mariadb
     build: requirements/mariadb/.
     container_name: mariadb
     restart: always
@@ -12,8 +13,25 @@ services:
     networks:
       - NT
 
+#nginx
+  nginx:
+    image: nginx
+    build: requirements/nginx/.
+    container_name: nginx
+    depends_on:
+      - wordpress
+    restart: always
+    ports: 
+      - 443:443
+    env_file: .env
+    networks:
+      - NT
+    volumes:
+      - wp:/var/www/wordpress
+
 #wordpress
   wordpress:
+    image: wordpress
     build: requirements/w-press/.
     depends_on:
       - mariadb
@@ -25,34 +43,19 @@ services:
     volumes:
       - wp:/var/www/wordpress
 
-#nginx
-  nginx:
-    build: requirements/nginx/.
-    container_name: nginx
-    depends_on:
-      - wordpress
-    restart: always
-    ports: 
-      - "443:443"
-    env_file: .env
-    networks:
-      - NT
-    volumes:
-      - wp:/var/www/wordpress
-
 volumes:
   mdb:
     name: mariadb
     driver: local
     driver_opts:
-      device: /home/data/mariadb
+      device: /home/mclonglong/data/mariadb
       o: bind
       type: none
   wp:
     name: wordpress
     driver: local
     driver_opts:
-      device: /home/data/wordpress
+      device: /home/mclonglong/data/wordpress
       o: bind
       type: none
 

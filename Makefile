@@ -2,7 +2,7 @@
 
 RUN = docker compose up --build
 
-CLEAN = docker compose down --rmi all;clean
+CLEAN = docker compose down --rmi all
 
 
 all:
