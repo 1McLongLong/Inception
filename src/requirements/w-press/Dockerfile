@@ -11,4 +11,3 @@ RUN chmod +x /tools/wpress.sh
 RUN mkdir -p /var/www/wordpress
 
 ENTRYPOINT ["./tools/wpress.sh"]
-
