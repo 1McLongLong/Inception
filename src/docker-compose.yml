@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   mariadb:
-    image: mariadb
+    image: mariadb:touahman
     build: requirements/mariadb/.
     container_name: mariadb
     restart: always
@@ -11,11 +11,11 @@ services:
     volumes:
       - mdb:/var/lib/mysql
     networks:
-      - NT
+      - my_network
 
 #nginx
   nginx:
-    image: nginx
+    image: nginx:touahman
     build: requirements/nginx/.
     container_name: nginx
     depends_on:
@@ -25,13 +25,13 @@ services:
       - 4040:4040
     env_file: .env
     networks:
-      - NT
+      - my_network
     volumes:
       - wp:/var/www/wordpress
 
 #wordpress
   wordpress:
-    image: wordpress
+    image: wordpress:touahman
     build: requirements/w-press/.
     depends_on:
       - mariadb
@@ -39,7 +39,7 @@ services:
     restart: always
     env_file: .env
     networks:
-      - NT
+      - my_network
     volumes:
       - wp:/var/www/wordpress
 
@@ -62,7 +62,7 @@ volumes:
       type: none
 
 networks:
-  NT:
+  my_network:
     driver: bridge
 
 

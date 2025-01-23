@@ -1,4 +1,5 @@
-FROM debian:11
+FROM debian:bullseye
+# FROM public.ecr.aws/docker/library/debian:bullseye
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y curl php php7.4-fpm php-mysqlnd mariadb-client
 

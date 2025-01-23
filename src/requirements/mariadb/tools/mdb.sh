@@ -10,10 +10,7 @@ GRANT ALL PRIVILEGES ON ${MARIADB_NM}.* TO $MARIADB_USER@'%';
 FLUSH PRIVILEGES;
 EOF
 
-# mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '$MARIADB_R_PW';"
-
 mysqladmin -u root -p$MARIADB_R_PW shutdown
 
-# restart mariadb int the background to keep the container running 
 # mysqld_safe --port=3306 --bind-address=0.0.0.0 --datadir='/var/lib/mysql'
 exec mysqld_safe
