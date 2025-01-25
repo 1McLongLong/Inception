@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   mariadb:
     image: mariadb:touahman
@@ -22,7 +20,7 @@ services:
       - wordpress
     restart: always
     ports: 
-      - 4040:4040
+      - 443:443
     env_file: .env
     networks:
       - my_network

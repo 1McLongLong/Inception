@@ -5,12 +5,12 @@ echo "
 events {}
 http {
 	server {
-			listen 4040 ssl;
+			listen 443 ssl;
 			ssl_protocols TLSv1.3;
 			ssl_certificate  /etc/ssl/private/nginx-selfsigned.crt;
 			ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
 
-			server_name localhost;
+			server_name touahman.42.fr;
 			root /var/www/wordpress;
 			index index.php;
 			location ~ \.php$ {

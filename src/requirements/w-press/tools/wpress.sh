@@ -17,7 +17,7 @@ mv wp-cli.phar /usr/local/bin/wp
 # echo "listen = 9000" >> /etc/php/7.4/fpm/pool.d/www.conf
 
 
-cd /var/www/wordpress
+# cd /var/www/wordpress
 chmod -R 755 /var/www/wordpress
 chown -R www-data:www-data /var/www/wordpress
 
@@ -34,7 +34,7 @@ wp core download --allow-root --path=/var/www/wordpress
 # Create a wp-config.php file
 wp core config --dbname=$MARIADB_NM --dbuser=$MARIADB_USER --dbpass=$MARIADB_PW --dbhost=mariadb:3306 --allow-root --path=/var/www/wordpress
 # Install WP
-wp core install --url=localhost --title=$WEBSITE_NAME --admin_user=$ADMIN_NAME --admin_password=$ADMIN_PASS --admin_email=$ADMIN_EMAIL --allow-root --path=/var/www/wordpress
+wp core install --url=$DOMAIN --title=$WEBSITE_NAME --admin_user=$ADMIN_NAME --admin_password=$ADMIN_PASS --admin_email=$ADMIN_EMAIL --allow-root --path=/var/www/wordpress
 # Creates a new user
 wp user create $NUSER_NAME $NUSER_EMAIL --role=author --user_pass=$NUSER_PASS --allow-root --path=/var/www/wordpress
 
