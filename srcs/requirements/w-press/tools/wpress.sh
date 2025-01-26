@@ -12,8 +12,6 @@ mv wp-cli.phar /usr/local/bin/wp
 
 ################### wp Installation & Configuration
 
-# mkdir /var/www/html && cd /var/www/html
-
 # echo "listen = 9000" >> /etc/php/7.4/fpm/pool.d/www.conf
 
 
@@ -23,13 +21,6 @@ chown -R www-data:www-data /var/www/wordpress
 
 # Downloads core WordPress files & Specify the path in which to install WordPress
 wp core download --allow-root --path=/var/www/wordpress
-
-# mv wp-config-sample.php wp-config.php && wp config create --allow-root
-# wp config set DB_NAME $MARIADB_NM --allow-root --path=/var/www/wordpress
-# wp config set DB_USER $MARIADB_USER --allow-root --path=/var/www/wordpress
-# wp config set DB_PASSWORD $MARIADB_PW --allow-root --path=/var/www/wordpress
-# wp config set DB_HOST 'mariadb:3306' --allow-root --path=/var/www/wordpress
-# wp config create --dbname=$MARIADB_NM --dbuser=$MARIADB_USER --dbpass=$MARIADB_PW --dbhost=mariadb:3306 --allow-root --path=/var/www/wordpress doesnt work
 
 # Create a wp-config.php file
 wp core config --dbname=$MARIADB_NM --dbuser=$MARIADB_USER --dbpass=$MARIADB_PW --dbhost=mariadb:3306 --allow-root --path=/var/www/wordpress
