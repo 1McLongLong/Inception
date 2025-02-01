@@ -2,6 +2,10 @@ services:
   mariadb:
     image: mariadb:touahman
     build: requirements/mariadb/.
+<<<<<<< HEAD
+=======
+    # container_name: mariadb
+>>>>>>> 5ba7c7b5fae3cbe176f53a5cf3c3c1bea8d36b14
     restart: always
     env_file:
       - .env
@@ -14,6 +18,10 @@ services:
   nginx:
     image: nginx:touahman
     build: requirements/nginx/.
+<<<<<<< HEAD
+=======
+    # container_name: nginx
+>>>>>>> 5ba7c7b5fae3cbe176f53a5cf3c3c1bea8d36b14
     depends_on:
       - wordpress
     restart: always
@@ -31,6 +39,10 @@ services:
     build: requirements/wordpress/.
     depends_on:
       - mariadb
+<<<<<<< HEAD
+=======
+    # container_name: wordpress
+>>>>>>> 5ba7c7b5fae3cbe176f53a5cf3c3c1bea8d36b14
     restart: always
     env_file: .env
     networks:
