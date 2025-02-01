@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# server_name touahman.42.fr;
 echo "
 events {}
 http {

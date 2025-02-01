@@ -2,6 +2,7 @@ services:
   mariadb:
     image: mariadb:touahman
     build: requirements/mariadb/.
+    container_name: mariadb
     restart: always
     env_file:
       - .env
@@ -10,10 +11,10 @@ services:
     networks:
       - my_network
 
-#nginx
   nginx:
     image: nginx:touahman
     build: requirements/nginx/.
+    container_name: nginx
     depends_on:
       - wordpress
     restart: always
@@ -25,10 +26,10 @@ services:
     volumes:
       - wp:/var/www/wordpress
 
-#wordpress
   wordpress:
     image: wordpress:touahman
     build: requirements/wordpress/.
+    container_name: wordpress
     depends_on:
       - mariadb
     restart: always

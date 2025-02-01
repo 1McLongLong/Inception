@@ -8,13 +8,13 @@ CLEAN = docker compose down --rmi all
 
 all:
 	mkdir -p  /home/touahman/Desktop/data /home/touahman/Desktop/data/mariadb /home/touahman/Desktop/data/wordpress
-	cd src && $(RUN)
+	cd srcs && $(RUN)
 
 down:
-	cd src && $(DOWN)
+	cd srcs && $(DOWN)
 
 clean:
-	cd src && $(CLEAN)
+	cd srcs && $(CLEAN)
 
 
 re: 
