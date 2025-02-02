@@ -6,7 +6,9 @@ RUN mkdir -p /etc/ssl/private/
 
 RUN openssl req -x509 -nodes -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/private/nginx-selfsigned.crt -subj "/CN=touahman.42.fr"
 
-RUN mkdir /var/www/wordpress && chmod 755 /var/www/wordpress && chown -R www-data:www-data /var/www/wordpress
+RUN mkdir /var/www/wordpress
+RUN chmod 755 /var/www/wordpress
+RUN chown -R www-data:www-data /var/www/wordpress
 
 COPY tools/nginx.sh /tools/
 

@@ -12,10 +12,7 @@ mv wp-cli.phar /usr/local/bin/wp
 
 ################### wp Installation & Configuration
 
-# echo "listen = 9000" >> /etc/php/7.4/fpm/pool.d/www.conf
-
-
-# cd /var/www/wordpress
+cd /var/www/wordpress
 chmod -R 755 /var/www/wordpress
 chown -R www-data:www-data /var/www/wordpress
 
