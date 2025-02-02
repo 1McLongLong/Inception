@@ -28,6 +28,8 @@ wp core config --dbname=$MARIADB_NM --dbuser=$MARIADB_USER --dbpass=$MARIADB_PW 
 wp core install --url=$DOMAIN --title=$WEBSITE_NAME --admin_user=$ADMIN_NAME --admin_password=$ADMIN_PASS --admin_email=$ADMIN_EMAIL --allow-root --path=/var/www/wordpress
 # Creates a new user
 wp user create $NUSER_NAME $NUSER_EMAIL --role=author --user_pass=$NUSER_PASS --allow-root --path=/var/www/wordpress
+# Install theme
+wp theme install lowfi --activate --allow-root
 
 ################### php Configuration
 
