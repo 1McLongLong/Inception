@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mysqld_safe &
+service mariadb start
 sleep 5
 
 mariadb -u root <<EOF
