@@ -9,7 +9,7 @@ http {
 			ssl_certificate  /etc/ssl/private/nginx-selfsigned.crt;
 			ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
 
-			server_name touahman.42.fr;
+			server_name $DOMAIN;
 			root /var/www/wordpress;
 			index index.php;
 			location ~ \.php$ {
@@ -19,5 +19,5 @@ http {
 		}
 	}
 	" > /etc/nginx/nginx.conf
-
+  # " > /etc/nginx/conf.d/nginx.conf so that http/port 80 doesnt work 
 nginx -g "daemon off;"
