@@ -12,5 +12,4 @@ EOF
 
 mysqladmin -u root -p$MARIADB_R_PW shutdown
 
-# mysqld_safe --port=3306 --bind-address=0.0.0.0 --datadir='/var/lib/mysql'
-exec mysqld_safe #--bind-address=0.0.0.0 check if it works and remove config file
+exec mysqld_safe --bind-address=0.0.0.0

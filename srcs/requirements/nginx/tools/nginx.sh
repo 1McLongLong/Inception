@@ -19,5 +19,4 @@ http {
 		}
 	}
 	" > /etc/nginx/nginx.conf
-  # " > /etc/nginx/conf.d/nginx.conf so that http/port 80 doesnt work 
 nginx -g "daemon off;"
