@@ -3,6 +3,9 @@
 service mariadb start
 sleep 5
 
+MARIADB_PW=$(cat /run/secrets/db_user_pass)
+MARIADB_R_PW=$(cat /run/secrets/db_root_pass)
+
 mariadb -u root <<EOF
 CREATE DATABASE IF NOT EXISTS $MARIADB_NM;
 CREATE USER IF NOT EXISTS $MARIADB_USER@'%' IDENTIFIED BY '$MARIADB_PW';

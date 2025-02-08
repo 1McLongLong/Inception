@@ -10,6 +10,9 @@ services:
       - mdb:/var/lib/mysql
     networks:
       - my_network
+    secrets:
+      - db_user_pass
+      - db_root_pass
 
   nginx:
     image: nginx:touahman
@@ -38,6 +41,9 @@ services:
       - my_network
     volumes:
       - wp:/var/www/wordpress
+    secrets:
+      - wp_user_pass
+      - wp_admin_pass
 
 volumes:
   mdb:
@@ -59,4 +65,12 @@ networks:
   my_network:
     driver: bridge
 
-
+secrets:
+  db_user_pass:
+    file: ../secrets/db_password.txt
+  db_root_pass:
+    file: ../secrets/db_root_password.txt
+  wp_admin_pass:
+    file: ../secrets/wp_admin_password.txt
+  wp_user_pass:
+    file: ../secrets/wp_user_password.txt

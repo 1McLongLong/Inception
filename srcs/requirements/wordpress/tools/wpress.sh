@@ -3,6 +3,10 @@
 ################### wp cli Installation
 sleep 10
 
+MARIADB_PW=$(cat /run/secrets/db_user_pass)
+ADMIN_PASS=$(cat /run/secrets/wp_admin_pass)
+NUSER_PASS=$(cat /run/secrets/wp_user_pass)
+
 # 1/ Download wp-cli
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 # 2/ Make it executable
