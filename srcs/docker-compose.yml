@@ -51,14 +51,14 @@ volumes:
     name: mariadb
     driver: local # Specifies that the storage will be on the local filesystem rather than a remote storage system
     driver_opts:
-      device: /home/touahman/Desktop/data/mariadb
+      device: /home/touahman/data/mariadb
       o: bind # Specifies this is a bind mount, which means it creates a direct link to the host directory (you can consider bind, like the symbolic link of a directory)
       type: none
   wp:
     name: wordpress
     driver: local
     driver_opts:
-      device: /home/touahman/Desktop/data/wordpress
+      device: /home/touahman/data/wordpress
       o: bind
       type: none
 
