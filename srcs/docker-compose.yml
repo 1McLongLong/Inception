@@ -44,14 +44,15 @@ services:
     secrets:
       - wp_user_pass
       - wp_admin_pass
+      - db_user_pass
 
 volumes:
   mdb:
     name: mariadb
-    driver: local
+    driver: local # Specifies that the storage will be on the local filesystem rather than a remote storage system
     driver_opts:
       device: /home/touahman/Desktop/data/mariadb
-      o: bind
+      o: bind # Specifies this is a bind mount, which means it creates a direct link to the host directory (you can consider bind, like the symbolic link of a directory)
       type: none
   wp:
     name: wordpress

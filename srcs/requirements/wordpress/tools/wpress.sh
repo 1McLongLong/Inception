@@ -18,7 +18,7 @@ mv wp-cli.phar /usr/local/bin/wp
 
 cd /var/www/wordpress
 chmod -R 755 /var/www/wordpress
-chown -R www-data:www-data /var/www/wordpress
+chown -R www-data:www-data /var/www/wordpress # www-data is the default user and group for NGINX
 
 # Downloads core WordPress files & Specify the path in which to install WordPress
 wp core download --allow-root --path=/var/www/wordpress
