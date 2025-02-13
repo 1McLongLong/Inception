@@ -1,13 +1,14 @@
 #!/bin/bash
 
 echo "
-events {}
-http {
+events {}                 # events block is used to configure settings that affect how Nginx handles connections
+http {                    # The main block for handling HTTP/HTTPS requests
 	server {
 			listen 443 ssl;
 			ssl_protocols TLSv1.3;
 			ssl_certificate  /etc/ssl/private/nginx-selfsigned.crt;
-			ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
+			ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key; 
+                # This key is kept secret on the server and is used to decrypt information encrypted with the public key
 
 			server_name $DOMAIN;
 			root /var/www/wordpress;

@@ -34,6 +34,6 @@ wp theme install lowfi --activate --allow-root
 
 ################### php Configuration
 
-mkdir -p /run/php
-
+mkdir -p /run/php # The /run/php directory is needed for PHP-FPM to store runtime files
+                  # This directory is where PHP-FPM stores its Process ID (PID) file.
 /usr/sbin/php-fpm7.4 -F

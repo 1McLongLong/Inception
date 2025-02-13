@@ -15,4 +15,4 @@ EOF
 
 mysqladmin -u root -p$MARIADB_R_PW shutdown
 
-exec mysqld_safe --bind-address=0.0.0.0 # start the MariaDB server in a safe mode. Safe mode means that if the server encounters an error during startup, it will attempt to restart automatically | Allows connections from any IP address.
+exec mysqld_safe --bind-address=0.0.0.0 # start the MariaDB server in a safe mode. Safe mode means that if the server encounters an error during startup, it will attempt to restart automatically | Allows connections from any IP address. This is useful when the MariaDB server needs to accept connections from other containers.
