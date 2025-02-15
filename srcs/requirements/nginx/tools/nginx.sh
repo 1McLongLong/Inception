@@ -24,4 +24,3 @@ http {                    # The main block for handling HTTP/HTTPS requests
   # This tells the web server where to send the PHP requests for processing. 9000 is the port number that the PHP processor is listening on. / 
   # "Send the PHP request to the PHP processor running at wordpress:9000."
 nginx -g "daemon off;"
-# test docker exec <container> ps -ef
